@@ -8,8 +8,7 @@ DefStringlist $ResultList$
 DefStringlist $ResultList2$
 
 include_insert "product.opsiinc"
-
-Message "Starte Installation von "+$ProductName$+" ..."
+include_insert "opsi.opsiinc"
 
 Message "Lege User an ..."
 Sub_create_user

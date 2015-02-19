@@ -1,9 +1,10 @@
 DefVar $ProductName$
+Set $ProductName$ = "Windows 7 logon background"
+;
 DefVar $ProductId$
-DefVar $ProductVersion$
-
-Set $ProductName$ = "Windows 7 logob background"
 Set $ProductId$ = "logon-background"
+;
+DefVar $ProductVersion$
 Set $ProductVersion$ = "1.0"
 
 

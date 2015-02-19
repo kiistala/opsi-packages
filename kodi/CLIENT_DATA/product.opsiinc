@@ -6,12 +6,5 @@ Set $ProductId$ = "kodi"
 ;
 DefVar $ProductVersion$
 Set $ProductVersion$ = "14.1"
-;
-DefVar $LogDir$
-Set $LogDir$ = "%SystemDrive%\tmp"
-;
-DefVar $InstallationLog$
-Set $InstallationLog$ = $LogDir$ + "\"+$ProductId$+".log"
-;
-ShowBitmap "%ScriptPath%\" + $ProductId$ + ".png" $ProductName$
-Message "Installiere "+$ProductName$ + " " + $ProductVersion$ + " ..."
+
+

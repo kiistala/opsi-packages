@@ -1,9 +1,9 @@
 DefVar $ProductName$
-DefVar $ProductId$
-DefVar $ProductVersion$
-
 Set $ProductName$ = "HTPC"
+;
+DefVar $ProductId$
 Set $ProductId$ = "HTPC"
+;
+DefVar $ProductVersion$
 Set $ProductVersion$ = "1.0"
-
 
