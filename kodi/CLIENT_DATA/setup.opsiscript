@@ -1,0 +1,9 @@
+[Actions]
+requiredWinstVersion >= "4.11.2.1"
+
+include_insert "product.opsiinc"
+
+Winbatch_install
+
+[Winbatch_install]
+"%ScriptPath%\files\kodi.exe" /S

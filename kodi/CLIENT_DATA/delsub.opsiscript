@@ -1,0 +1,7 @@
+Message "Deinstalliere " + "kodi" + " ..."
+
+comment "remove older version"
+WinBatch_uninstall
+
+[WinBatch_uninstall]
+%ProgramFiles32Dir%\kodi\uninstall.exe /S
