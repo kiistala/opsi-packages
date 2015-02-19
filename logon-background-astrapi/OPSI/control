@@ -1,0 +1,23 @@
+[Package]
+version: 1
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: logon-background-astrapi
+name: logon-background-astrapi
+description: Set background on windows 7 logon screen
+advice: 
+version: 1.0
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
