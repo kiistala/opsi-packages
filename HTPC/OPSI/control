@@ -5,7 +5,7 @@ incremental: False
 
 [Product]
 type: localboot
-id: HTPC
+id: htpc
 name: HTPC
 description: 
 advice: 
