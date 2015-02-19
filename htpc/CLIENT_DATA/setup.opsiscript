@@ -1,0 +1,110 @@
+[Actions]
+requiredWinstVersion >= "4.11.2.1"
+
+DefVar $Group$
+DefVar $UserExists$
+
+DefStringlist $ResultList$
+DefStringlist $ResultList2$
+
+include_insert "product.opsiinc"
+include_insert "opsi.opsiinc"
+
+Message "Lege User an ..."
+Sub_create_user
+
+Message "Kopiere Dateien"
+Files_copy /SysNative
+
+Message "Erstelle Autologon"
+Registry_AutoLogon /SysNative
+
+Message "Erstelle Active Setup"
+Registry_Enable_ActiveSetup_Script /SysNative
+
+comment "Erstelle Script"
+DosInAnIcon_Create_Script /SysNative
+
+comment "Erstelle Registryeintraege"
+Registry_Enable_ActiveSetup_Script /SysNative
+
+comment "Logon aendern"
+Registry_Logon_Win7 /SysNative
+
+comment "Bootscreen Aendern"
+DosBatch_set_bootscreen /SysNative
+
+ExitWindows /Reboot
+
+[Sub_create_user]
+comment "get the name of the admin group"
+comment "using psgetsid from sysinernals pstools"
+Set $ResultList$ = getOutStreamFromSection("DosInAnIcon_get_user_group")
+set $Group$ = takeString(6,$ResultList$)
+set $Group$ = takeString(1,splitstring($Group$,"\"))
+
+comment "Check if user exists."
+comment "If user exists, the password will be altered. Otherwise, the user will be created."
+set $ResultList2$ = getOutStreamFromSection("DosInAnIcon_checkuser")
+set $UserExists$ = takeString(0,$ResultList2$)
+
+comment "create our local user"
+if $UserExists$ = "no"
+	DosInAnIcon_makeuser
+else
+	DosInAnIcon_alter_pw
+endif
+
+[Registry_AutoLogon]
+openkey [HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+set "DefaultUserName"="media"
+set "DefaultPassword"="javo666"
+set "DefaultDomainName"="TEST"
+set "AutoAdminLogon"="1"
+
+[Registry_Enable_ActiveSetup_Script]
+openkey [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\$ProductId$]
+set "" = "$ProductId$"
+set "StubPath" = '"%ProgramFiles32Dir%\AstrapiHtpc\ActiveSetup.cmd"'
+set "Version" = "1,0,0,0"
+
+[Registry_HTPC]
+openkey [HKEY_CURRENT_USER\Software\KodiLauncher]
+set "StartKodiOnWinLogon" = "1"
+set "ReloadKodiLauncher" = "0"
+set "Kodi_Path" = "C:\Program Files (x86)\Kodi\Kodi.exe"
+
+[Registry_Logon_Win7]
+OpenKey [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication]
+Add "OEMBackground" = reg_dword:0x00000001
+Set "OEMBackground" = reg_dword:0x00000001
+OpenKey [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+Add "UseOEMBackground" = reg_dword:0x00000001
+Set "UseOEMBackground" = reg_dword:0x00000001
+
+[Files_copy]
+copy "%ScriptPath%\files\KodiLauncher.exe" "%ProgramFiles32Dir%\AstrapiHtpc"
+copy "%ScriptPath%\files\winlogon.reg" "%ProgramFiles32Dir%\AstrapiHtpc"
+copy "%ScriptPath%\files\backgroundDefault.jpg" "C:\Windows\System32\oobe\info\backgrounds\"
+
+[DosInAnIcon_makeuser]
+NET USER "media" "javo666" /ADD /comment:"Local Media User created by opsi-package" /fullname:"media" /passwordchg:no /passwordreq:no /active:yes
+NET LOCALGROUP $Group$ /ADD "media"
+ 
+[DosInAnIcon_alter_pw]
+NET USER $local_user$ $val_userpasswd$
+
+[DosInAnIcon_get_user_group]
+@echo off
+"%ScriptPath%\psgetsid.exe" /accepteula S-1-5-32-545
+
+[DosInAnIcon_checkuser]
+@echo off
+net user $local_user$ >nul 2>&1 && echo yes || echo no
+
+[DosInAnIcon_Create_Script]
+echo reg.exe import "%ProgramFiles32Dir%\AstrapiHtpc\winlogon.reg" > "%ProgramFiles32Dir%\AstrapiHtpc\ActiveSetup.cmd"
+echo shutdown -r -f -t 0 >> "%ProgramFiles32Dir%\AstrapiHtpc\ActiveSetup.cmd"
+
+[DosBatch_set_bootscreen]
+"%ScriptPath%\files\Win7BootUpdaterCmd.exe" "%ScriptPath%\files\AstrapiHtpc.bs7"

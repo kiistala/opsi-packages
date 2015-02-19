@@ -1,0 +1,9 @@
+DefVar $ProductName$
+Set $ProductName$ = "htpc"
+;
+DefVar $ProductId$
+Set $ProductId$ = "htpc"
+;
+DefVar $ProductVersion$
+Set $ProductVersion$ = "1.0"
+
