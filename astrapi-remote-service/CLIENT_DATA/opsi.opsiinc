@@ -1,0 +1,12 @@
+DefVar $LogDir$
+Set $LogDir$ = "%SystemDrive%\tmp"
+;
+DefVar $InstallationLog$
+Set $InstallationLog$ = $LogDir$ + "\"+$ProductId$+".log"
+;
+;DefVar $SystemType$
+;Set $SystemType$ = GetSystemType
+;
+ShowBitmap "%ScriptPath%\" + $ProductId$ + ".png" $ProductName$
+Message "Installiere "+$ProductName$ + " " + $ProductVersion$ + " ..."
+

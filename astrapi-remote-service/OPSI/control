@@ -1,0 +1,23 @@
+[Package]
+version: 1
+depends: 
+incremental: True
+
+[Product]
+type: localboot
+id: astrapi-remote-service
+name: astrapi-remote-service
+description: astrapi-remote-service
+advice: 
+version: 1.0.0
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: 
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+

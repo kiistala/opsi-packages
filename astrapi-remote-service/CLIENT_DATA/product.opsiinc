@@ -1,0 +1,14 @@
+;Defaults
+DefVar $ProductName$
+Set $ProductName$ = "astrapi-remote-service"
+;
+DefVar $ProductId$
+Set $ProductId$ = "astrapi-remote-service"
+;
+DefVar $ProductVersion$
+Set $ProductVersion$ = "1.0.0"
+;
+;
+;Propertys
+;DefVar $PropertyInstallArchitecture$
+;Set $PropertyInstallArchitecture$ = GetProductProperty("install_architecture","system specific")
