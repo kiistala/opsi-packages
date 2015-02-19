@@ -1,0 +1,39 @@
+[Actions]
+requiredWinstVersion >= "4.11.2.1"
+
+include_insert "product.opsiinc"
+include_insert "opsi.opsiinc"
+
+comment "DosBatch_install_cert"
+DosBatch_install_cert
+
+if (($SystemType$ = "x86 System") and ($PropertyInstallArchitecture$ = "system specific")) or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "32 only")
+  comment "Winbatch_install_32"
+  Winbatch_install_32
+endif
+
+if ($SystemType$ = "64 Bit System") and (($PropertyInstallArchitecture$ = "system specific") or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "64 only"))
+  comment "Winbatch_install_64"
+  Winbatch_install_64
+endif
+
+ExitWindows /Reboot
+
+[DosBatch_install_cert]
+%ScriptPath%\files\VBoxCertUtil.exe add-trusted-publisher %ScriptPath%\files\oracle-vbox.cer
+
+[Winbatch_install_32]
+"%ScriptPath%\files\VBoxWindowsAdditions-x86.exe" /S /with_d3d /with_wddm
+
+[Winbatch_install_64]
+"%ScriptPath%\files\VBoxWindowsAdditions-amd64.exe" /S /with_d3d /with_wddm
+
+
+
+
+
+
+
+
+
+

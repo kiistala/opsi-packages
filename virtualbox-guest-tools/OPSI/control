@@ -1,0 +1,54 @@
+[Package]
+version: 1
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: virtualbox-guest-tools
+name: VirtualBox Guest Tools
+description: Tools for running in as a virtual machine inside VirtualBox
+advice: 
+version: 4.3.20
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[ProductProperty]
+type: unicode
+name: install_architecture
+multivalue: False
+editable: False
+description: which architecture (32/64 bit) has to be installed
+values: ["32 only", "64 only", "both", "system specific"]
+default: ["system specific"]
+
+[Changelog]
+20120704; 4.3.14-1; Michael Otto
+  * initial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
