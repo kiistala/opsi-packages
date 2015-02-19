@@ -1,0 +1,33 @@
+[Package]
+version: 1
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: kodi-astrapi
+name: kodi
+description: 
+advice: 
+version: 14.1
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[ProductDependency]
+action: setup
+requiredProduct: xbmc-astrapi
+requiredAction: uninstall
+
+[ProductDependency]
+action: setup
+requiredProduct: xbmc
+requiredAction: uninstall
+
