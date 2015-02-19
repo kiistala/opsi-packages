@@ -1,9 +1,0 @@
-DefVar $ProductName$
-DefVar $ProductId$
-DefVar $ProductVersion$
-
-Set $ProductName$ = "Windows 7 logob background"
-Set $ProductId$ = "logon-background-astrapi"
-Set $ProductVersion$ = "1.0"
-
-
