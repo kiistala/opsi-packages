@@ -1,14 +1,3 @@
-;Defaults
-DefVar $ProductName$
-Set $ProductName$ = "virtualbox-guest-tools"
-;
-DefVar $ProductId$
-Set $ProductId$ = "virtualbox-guest-tools"
-;
-DefVar $ProductVersion$
-Set $ProductVersion$ = "4.3.20"
-;
-;
 ;Propertys
 DefVar $PropertyInstallArchitecture$
 Set $PropertyInstallArchitecture$ = GetProductProperty("install_architecture","system specific")

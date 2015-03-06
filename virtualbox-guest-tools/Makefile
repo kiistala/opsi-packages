@@ -1,22 +1,37 @@
-PACKAGE_NAME = virtualbox-guest-tools
-VERSION = 4.3.20
-OPSI_PACKAGE_VERSION = 1
+WGET_COMMON_OPTIONS		= -q -N
 
-TARGET = $(PACKAGE_NAME)_$(VERSION)-$(OPSI_PACKAGE_VERSION).opsi
+PACKAGE_NAME			= virtualbox-guest-tools
+PACKAGE_VERSION			= 1
+VERSION					= 4.3.24
 
-all: build install
+DOWNLOAD_DIR			= ./tmp
+DOWNLOAD_URL			= http://download.virtualbox.org/virtualbox/$(VERSION)/VBoxGuestAdditions_$(VERSION).iso
 
-$(TARGET):
+TARGET					= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
+
+all: download build install clean
+
+download:
+	mkdir -p $(DOWNLOAD_DIR)
+	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL)
+	mkdir -p $(DOWNLOAD_DIR)/mount
+	fuseiso $(DOWNLOAD_DIR)/VBoxGuestAdditions_$(VERSION).iso $(DOWNLOAD_DIR)/mount
+	rm -f CLIENT_DATA/files/*
+	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions.exe CLIENT_DATA/files
+	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions-amd64.exe CLIENT_DATA/files
+	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions-x86.exe CLIENT_DATA/files
+	cp $(DOWNLOAD_DIR)/mount/cert/oracle-vbox.cer CLIENT_DATA/files
+	cp $(DOWNLOAD_DIR)/mount/cert/VBoxCertUtil.exe CLIENT_DATA/files
+	fusermount -u $(DOWNLOAD_DIR)/mount
+	rm -rf $(DOWNLOAD_DIR)
+
+build:
+	sed -e's/<VERSION>/$(VERSION)/g' -e's/<PACKAGE_VERSION>/$(PACKAGE_VERSION)/g' OPSI/control.template > OPSI/control
 	opsi-makeproductfile
 
-build: $(TARGET)
-
-$(TARGET).uploaded:
-	opsi-package-manager -i $(TARGET)
-	touch $(TARGET).uploaded
-
-install: $(TARGET).uploaded
+install:
+	opsi-package-manager --install --setup $(TARGET)
 
 clean:
-	rm -f $(TARGET) $(TARGET).uploaded
+	rm -f $(TARGET)
 
