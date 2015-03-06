@@ -16,6 +16,7 @@ download:
 	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL)
 	mkdir -p $(DOWNLOAD_DIR)/mount
 	fuseiso $(DOWNLOAD_DIR)/VBoxGuestAdditions_$(VERSION).iso $(DOWNLOAD_DIR)/mount
+	mkdir CLIENT_DATA/files
 	rm -f CLIENT_DATA/files/*
 	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions.exe CLIENT_DATA/files
 	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions-amd64.exe CLIENT_DATA/files
