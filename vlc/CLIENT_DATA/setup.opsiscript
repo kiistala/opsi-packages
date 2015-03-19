@@ -1,0 +1,31 @@
+[Actions]
+requiredWinstVersion >= "4.11.2.1"
+
+include_insert "product.opsiinc"
+include_insert "%ScriptDrive%\lib\opsi.opsiinc"
+
+if (($SystemType$ = "x86 System") and ($PropertyInstallArchitecture$ = "system specific")) or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "32 only")
+  comment "Winbatch_install_32"
+  Winbatch_install_32
+endif
+
+if ($SystemType$ = "64 Bit System") and (($PropertyInstallArchitecture$ = "system specific") or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "64 only"))
+  comment "Winbatch_install_64"
+  Winbatch_install_64
+endif
+
+[Winbatch_install_32]
+"%SCRIPTPATH%\files\setup_x86.exe" /L=1031 /S
+
+[Winbatch_install_64]
+"%SCRIPTPATH%\files\setup_x64.exe" /L=1031 /S
+
+
+
+
+
+
+
+
+
+

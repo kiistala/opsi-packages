@@ -1,0 +1,54 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: vlc
+name: VideoLAN - VLC media player
+description: VLC ist ein freier und quelloffener Multimediaplayer sowie ein Framework für verschiedene Betriebssysteme, das die meisten Multimediadateien, sowie DVDs, Audio-CDs, VCDs und verschiedene Streamingprotokolle abspielt. 
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[ProductProperty]
+type: unicode
+name: install_architecture
+multivalue: False
+editable: False
+description: which architecture (32/64 bit) has to be installed
+values: ["32 only", "64 only", "both", "system specific"]
+default: ["system specific"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
