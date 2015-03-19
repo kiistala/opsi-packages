@@ -1,13 +1,13 @@
 WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= virtualbox-guest-tools
-PACKAGE_VERSION			= 1
-VERSION					= 4.3.24
+PACKAGE_VERSION			= 3
+VERSION				= 4.3.26
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL			= http://download.virtualbox.org/virtualbox/$(VERSION)/VBoxGuestAdditions_$(VERSION).iso
 
-TARGET					= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
+TARGET				= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
 
 all: download build install clean
 
@@ -16,7 +16,7 @@ download:
 	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL)
 	mkdir -p $(DOWNLOAD_DIR)/mount
 	fuseiso $(DOWNLOAD_DIR)/VBoxGuestAdditions_$(VERSION).iso $(DOWNLOAD_DIR)/mount
-	mkdir CLIENT_DATA/files
+	mkdir -p CLIENT_DATA/files
 	rm -f CLIENT_DATA/files/*
 	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions.exe CLIENT_DATA/files
 	cp $(DOWNLOAD_DIR)/mount/VBoxWindowsAdditions-amd64.exe CLIENT_DATA/files
@@ -35,4 +35,5 @@ install:
 
 clean:
 	rm -f $(TARGET)
+	rm -rf CLIENT_DATA/files 
 

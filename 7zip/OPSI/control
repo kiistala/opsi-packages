@@ -1,15 +1,15 @@
 [Package]
-version: 3
+version: 2
 depends: 
 incremental: False
 
 [Product]
 type: localboot
-id: virtualbox-guest-tools
-name: VirtualBox Guest Tools
-description: Tools for running in as a virtual machine inside VirtualBox
+id: 7zip
+name: 7-Zip
+description: Packer-Freeware
 advice: 
-version: 4.3.26
+version: 9.38
 priority: 0
 licenseRequired: False
 productClasses: 
