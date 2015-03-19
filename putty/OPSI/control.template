@@ -1,0 +1,46 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: putty
+name: Putty
+description: PuTTY is a free implementation of Telnet and SSH for Windows and Unix platforms
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
