@@ -27,5 +27,6 @@ install:
 
 clean:
 	rm -f $(TARGET)
-	rm -rf CLIENT_DATA/files 
+	rm -rf CLIENT_DATA/files
+	rm  OPSI/control
 
