@@ -1,0 +1,23 @@
+[Package]
+version: 1
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: notepadpp
+name: Notepad++
+description: source code editor
+advice: 
+version: 6.7.5
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
