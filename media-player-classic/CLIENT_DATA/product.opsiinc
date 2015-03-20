@@ -1,0 +1,3 @@
+;Propertys
+DefVar $PropertyInstallArchitecture$
+Set $PropertyInstallArchitecture$ = GetProductProperty("install_architecture","system specific")

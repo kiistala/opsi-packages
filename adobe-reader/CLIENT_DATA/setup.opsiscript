@@ -1,0 +1,17 @@
+[Actions]
+requiredWinstVersion >= "4.11.2.1"
+
+include_insert "product.opsiinc"
+include_insert "%ScriptDrive%\lib\opsi.opsiinc"
+
+comment "Winbatch_install"
+Winbatch_install
+Registry_HKLM
+
+[Winbatch_install]
+"%ScriptPath%\files\setup.exe" /sAll /msi /norestart ALLUSERS=1 EULA_ACCEPT=YES
+ 
+[Registry_HKLM]
+;Disables Adobe Reader Updates
+OpenKey [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\Acrobat Reader\11.0\FeatureLockDown]
+Set "bUpdater"=reg_dword:0x00000000

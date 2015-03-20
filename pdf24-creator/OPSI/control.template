@@ -1,0 +1,46 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: pdf24-creator
+name: PDF24 Creator
+description: kostenloser PDF-Editor
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
