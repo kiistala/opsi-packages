@@ -2,7 +2,7 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= google-chrome
 PACKAGE_VERSION			= 1
-VERSION					= 41.0.2272.89
+VERSION					= 41.0.2272.101
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL_32			= https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B3A406581-0BD9-9DEA-D2EE-9B69C061D183%7D%26lang%3Dde%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers/dl/chrome/install/googlechromestandaloneenterprise.msi

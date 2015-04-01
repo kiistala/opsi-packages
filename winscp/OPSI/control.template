@@ -1,0 +1,46 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: winscp
+name: WinSCP
+description: WinSCP ist ein grafischer Open Source SFTP und FTP Client fuer Windows, der auch das alte SCP-Protokoll unterstuetzt.
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
