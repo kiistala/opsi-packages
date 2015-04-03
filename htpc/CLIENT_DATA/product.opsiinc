@@ -1,9 +1,4 @@
-DefVar $ProductName$
-Set $ProductName$ = "htpc"
-;
-DefVar $ProductId$
-Set $ProductId$ = "htpc"
-;
-DefVar $ProductVersion$
-Set $ProductVersion$ = "1.0"
+;Propertys
+DefVar $PropertyInstallArchitecture$
+Set $PropertyInstallArchitecture$ = GetProductProperty("install_architecture","system specific")
 

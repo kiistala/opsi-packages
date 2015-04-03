@@ -8,7 +8,7 @@ DefStringlist $ResultList$
 DefStringlist $ResultList2$
 
 include_insert "product.opsiinc"
-include_insert "opsi.opsiinc"
+include_insert "%ScriptDrive%\lib\opsi.opsiinc"
 
 Message "Lege User an ..."
 Sub_create_user
@@ -59,7 +59,7 @@ endif
 openkey [HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
 set "DefaultUserName"="media"
 set "DefaultPassword"="javo666"
-set "DefaultDomainName"="TEST"
+set "DefaultDomainName"="SIMPSONS"
 set "AutoAdminLogon"="1"
 
 [Registry_Enable_ActiveSetup_Script]

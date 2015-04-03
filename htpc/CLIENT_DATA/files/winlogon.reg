@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"Shell"="C:\\Program Files (x86)\\AstrapiHtpc\\KodiLauncher.exe"
+
+[HKEY_CURRENT_USER\Software\KodiLauncher]
+"ReloadKodiLauncher"="0"
+"RestartKodi"="0"
+"StartKodiOnWinLogon"="1"
+"Kodi_Path"="C:\\Program Files (x86)\\Kodi\\Kodi.exe"

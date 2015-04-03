@@ -1,22 +1,22 @@
-PACKAGE_NAME = htpc
-VERSION = 1.0
-OPSI_PACKAGE_VERSION = 1
+WGET_COMMON_OPTIONS		= -q -N
 
-TARGET = $(PACKAGE_NAME)_$(VERSION)-$(OPSI_PACKAGE_VERSION).opsi
+PACKAGE_NAME			= htpc
+PACKAGE_VERSION			= 2
+VERSION					= 1.0
 
-all: build install
+TARGET					= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
 
-$(TARGET):
+all: build install clean
+
+build:
+	sed -e's/<VERSION>/$(VERSION)/g' -e's/<PACKAGE_VERSION>/$(PACKAGE_VERSION)/g' OPSI/control.template > OPSI/control
 	opsi-makeproductfile
 
-build: $(TARGET)
-
-$(TARGET).uploaded:
-	opsi-package-manager -i $(TARGET)
-	touch $(TARGET).uploaded
-
-install: $(TARGET).uploaded
+install:
+	opsi-package-manager --install --setup $(TARGET)
 
 clean:
-	rm -f $(TARGET) $(TARGET).uploaded
+	rm -f $(TARGET)
+	rm  OPSI/control
+
 
