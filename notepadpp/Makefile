@@ -2,7 +2,7 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= notepadpp
 PACKAGE_VERSION			= 1
-VERSION					= 6.7.5
+VERSION					= 6.7.7
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL			= http://dl.notepad-plus-plus.org/downloads/6.x/$(VERSION)/npp.$(VERSION).Installer.exe
