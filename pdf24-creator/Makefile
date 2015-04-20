@@ -16,7 +16,6 @@ download:
 	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL)
 	mkdir -p CLIENT_DATA/files
 	cp $(DOWNLOAD_DIR)/pdf24-creator.msi CLIENT_DATA/files/setup.msi
-	cp CLIENT_DATA/data/Mp3tagSetup.ini CLIENT_DATA/files
 	rm -rf $(DOWNLOAD_DIR)
 
 build:
