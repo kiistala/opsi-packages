@@ -2,11 +2,11 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= vlc
 PACKAGE_VERSION			= 1
-VERSION					= 2.2.0
+VERSION					= 2.2.1
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL_32			= http://get.videolan.org/vlc/$(VERSION)/win32/vlc-$(VERSION)-win32.exe
-DOWNLOAD_URL_64			= http://download.videolan.org/pub/videolan/vlc/last/win64/vlc-$(VERSION)-win64.exe
+DOWNLOAD_URL_64			= http://get.videolan.org/vlc/$(VERSION)/win64/vlc-$(VERSION)-win64.exe
 
 TARGET					= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
 
