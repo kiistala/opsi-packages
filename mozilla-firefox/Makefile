@@ -2,7 +2,7 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= mozilla-firefox
 PACKAGE_VERSION			= 1
-VERSION				= 37.0.1
+VERSION				= 37.0.2
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL			= http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$(VERSION)/win32/de/Firefox%20Setup%20$(VERSION).exe
