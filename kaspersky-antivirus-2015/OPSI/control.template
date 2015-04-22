@@ -1,0 +1,52 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: <PACKAGE_ID>
+name: <PACKAGE_NAME>
+description: <PACKAGE_DESCRIPTION>
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: uninstall.opsiscript
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript: 
+
+[ProductProperty]
+type: unicode
+name: productkey
+multivalue: False
+editable: True
+description: License key for the installation.
+values: ["", "xxxxx-xxxxx-xxxxx-xxxxx"]
+default: [""]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+;Propertys
+DefVar $PropertyProductKey
+Set $PropertyProductKey$ = GetProduktProperty("productkey","")
+

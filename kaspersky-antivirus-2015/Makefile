@@ -1,0 +1,36 @@
+WGET_COMMON_OPTIONS		= -q -N
+
+PACKAGE_ID			= kaspersky-antivirus-2015
+PACKAGE_NAME			= Kaspersky Antivirus 2015
+PACKAGE_VERSION			= 1
+PACKAGE_DESCRIPTION		= Antivirus
+VERSION				= 15.0.1.415
+
+DOWNLOAD_VERSION		= 15.0.1.415DE_7067
+DOWNLOAD_DIR			= ./tmp
+DOWNLOAD_URL			= http://wgtot60.digitalriver.com/wgt/9B5A4FCEF11DA80C/171F14235882A3D34841170D5B9DEF7BC5DD423EBFD9CDA08D273C5554AF20959A9489D35F533DFA2E3FF2BCAFB9361CF52C496102CF4A5409F95A08EF02541AEDB4D58E7763A7D44F0509B06E5B01658F5DC70B1E40C906/kaspersk/kav$(DOWNLOAD_VERSION).exe
+
+TARGET					= $(PACKAGE_ID)_$(VERSION)-$(PACKAGE_VERSION).opsi
+
+all: download build install clean
+
+download:
+	mkdir -p $(DOWNLOAD_DIR)
+	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL)
+	mkdir -p CLIENT_DATA/files
+	cp $(DOWNLOAD_DIR)/kav$(DOWNLOAD_VERSION).exe CLIENT_DATA/files/setup.exe
+	rm -rf $(DOWNLOAD_DIR)
+
+build:
+	sed -e's/<VERSION>/$(VERSION)/g' -e's/<PACKAGE_VERSION>/$(PACKAGE_VERSION)/g' -e's/<PACKAGE_ID>/$(PACKAGE_ID)/g' -e's/<PACKAGE_DESCRIPTION>/$(PACKAGE_DESCRIPTION)/g' -e's/<PACKAGE_NAME>/$(PACKAGE_NAME)/g' OPSI/control.template > OPSI/control
+	opsi-makeproductfile
+
+install:
+	opsi-package-manager --install --setup $(TARGET)
+
+clean:
+	rm -f $(TARGET)
+	rm -rf CLIENT_DATA/files
+	rm  OPSI/control
+
+
