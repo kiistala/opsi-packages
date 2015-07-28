@@ -1,13 +1,13 @@
 WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= 7zip
-PACKAGE_VERSION			= 2
-VERSION					= 9.38
+PACKAGE_VERSION			= 1
+VERSION					= 15.05
 
-DOWNLOAD_VERSION		= 938
+DOWNLOAD_VERSION		= 1505
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL_32			= http://www.7-zip.org/a/7z$(DOWNLOAD_VERSION).exe
-DOWNLOAD_URL_64			= http://www.7-zip.org/a/7z$(DOWNLOAD_VERSION)-x64.msi
+DOWNLOAD_URL_64			= http://www.7-zip.org/a/7z$(DOWNLOAD_VERSION)-x64.exe
 
 TARGET					= $(PACKAGE_NAME)_$(VERSION)-$(PACKAGE_VERSION).opsi
 
@@ -19,7 +19,7 @@ download:
 	wget $(WGET_COMMON_OPTIONS) -P $(DOWNLOAD_DIR) $(DOWNLOAD_URL_64)
 	mkdir -p CLIENT_DATA/files
 	cp $(DOWNLOAD_DIR)/7z$(DOWNLOAD_VERSION).exe CLIENT_DATA/files/setup_x86.exe
-	cp $(DOWNLOAD_DIR)/7z$(DOWNLOAD_VERSION)-x64.msi CLIENT_DATA/files/setup_x64.msi
+	cp $(DOWNLOAD_DIR)/7z$(DOWNLOAD_VERSION)-x64.exe CLIENT_DATA/files/setup_x64.exe
 	rm -rf $(DOWNLOAD_DIR)
 
 build:

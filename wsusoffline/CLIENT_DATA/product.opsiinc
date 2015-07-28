@@ -1,0 +1,6 @@
+;Propertys
+DefVar $PropertyInstallArchitecture$
+Set $PropertyInstallArchitecture$ = GetProductProperty("install_architecture","system specific")
+
+DefVar $Options$
+Set $Options$ = composeString( splitString ( GetProductProperty("options",""), "," ), " " ) 

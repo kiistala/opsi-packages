@@ -2,9 +2,9 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= mp3tag
 PACKAGE_VERSION			= 1
-VERSION					= 2.69
+VERSION					= 2.70
 
-DOWNLOAD_VERSION		= 269
+DOWNLOAD_VERSION		= 270
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL			= http://download.mp3tag.de/mp3tagv$(DOWNLOAD_VERSION)setup.exe
 

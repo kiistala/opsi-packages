@@ -1,0 +1,60 @@
+[Package]
+version: <PACKAGE_VERSION>
+depends: 
+incremental: False
+
+[Product]
+type: localboot
+id: <PACKAGE_ID>
+name: <PACKAGE_NAME>
+description: <PACKAGE_DESCRIPTION>
+advice: 
+version: <VERSION>
+priority: 0
+licenseRequired: False
+productClasses: 
+setupScript: setup.opsiscript
+uninstallScript: 
+updateScript: 
+alwaysScript: 
+onceScript: 
+customScript: 
+userLoginScript 
+
+[ProductProperty]
+type: unicode
+name: install_architecture
+multivalue: False
+editable: False
+description: which architecture (32/64 bit) has to be installed
+values: ["32 only", "64 only", "both", "system specific"]
+default: ["system specific"]
+
+[ProductProperty]
+type: unicode
+name: options
+multivalue: True
+editable: False
+description: install options for wsusoffline
+values: ["/instdotnet4", "/instie8", "/instmsse", "/instpsh", "/instwd", "/nobackup", "/updatecpp", "/updatedx", "/updatercerts", "/updatetsc", "/updatewmp"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

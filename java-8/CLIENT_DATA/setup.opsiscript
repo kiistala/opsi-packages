@@ -6,20 +6,16 @@ include_insert "%ScriptDrive%\lib\opsi.opsiinc"
 
 if (($SystemType$ = "x86 System") and ($PropertyInstallArchitecture$ = "system specific")) or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "32 only")
   comment "Winbatch_install_32"
-  Winbatch_install_32
+  ShellBatch_install
 endif
 
 if ($SystemType$ = "64 Bit System") and (($PropertyInstallArchitecture$ = "system specific") or ($PropertyInstallArchitecture$ = "both") or ($PropertyInstallArchitecture$ = "64 only"))
   comment "Winbatch_install_64"
-  Winbatch_install_64
+  ShellBatch_install
 endif
 
-[Winbatch_install_32]
-"%SCRIPTPATH%\files\setup_x86.exe" /S
-
-[Winbatch_install_64]
-;msiexec /qb-! /li+ "$InstallationLog$" /i "%ScriptPath%\files\setup_x64.msi" TARGETDIR="$InstallDir$" ALLUSERS=2
-"%SCRIPTPATH%\files\setup_x64.exe" /S
+[ShellBatch_install]
+call "%ScriptPath%\client\cmd\DoUpdate.cmd" $Options$
 
 
 

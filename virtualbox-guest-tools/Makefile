@@ -1,8 +1,8 @@
 WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= virtualbox-guest-tools
-PACKAGE_VERSION			= 3
-VERSION				= 4.3.26
+PACKAGE_VERSION			= 1
+VERSION				= 5.0.0
 
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL			= http://download.virtualbox.org/virtualbox/$(VERSION)/VBoxGuestAdditions_$(VERSION).iso

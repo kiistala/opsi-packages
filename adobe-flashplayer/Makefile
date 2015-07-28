@@ -2,9 +2,8 @@ WGET_COMMON_OPTIONS		= -q -N
 
 PACKAGE_NAME			= adobe-flashplayer
 PACKAGE_VERSION			= 1
-VERSION					= 17.0.0.134
+VERSION				= 17.0.0.169
 
-DOWNLOAD_VERSION		= 269
 DOWNLOAD_DIR			= ./tmp
 DOWNLOAD_URL_1			= http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_17_active_x.msi
 DOWNLOAD_URL_2			= http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_17_plugin.msi
